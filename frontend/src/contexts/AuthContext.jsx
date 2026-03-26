@@ -73,13 +73,7 @@ export const AuthProvider = ({ children }) => {
         if (!res.ok) return data.message;
 
         localStorage.setItem('token', data.token);
-
-        const meRes = await fetch(`${BACKEND_URL}/user/me`, {
-            headers: { Authorization: `Bearer ${data.token}` },
-        });
-        const meData = await meRes.json();
-        setUser(meData.user);
-
+        setUser(data.user);
         navigate("/profile");
     };
 

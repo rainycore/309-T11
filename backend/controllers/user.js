@@ -8,7 +8,7 @@ function loginController(req, res) {
         return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    res.json({ token: data });
+    res.json({ token: data.token, user: data.user });
 }
 
 function profileController(req, res) {

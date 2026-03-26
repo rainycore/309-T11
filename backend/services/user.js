@@ -37,7 +37,8 @@ class UserService {
             { expiresIn: "7d" }
         );
 
-        return token;
+        const { password: _, ...user_no_passwd } = user;
+        return { token, user: user_no_passwd };
     }
 
     /**
